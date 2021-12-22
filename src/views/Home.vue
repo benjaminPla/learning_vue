@@ -1,18 +1,19 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <emit-v-model :modelValue='emitTest' @update:modelValue='emitTest = $event' />
+  <test-slot>Testing text...</test-slot>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import { ref } from 'vue';
+import EmitVModel from '../components/EmitVModel.vue';
+import TestSlot from '../components/TestSlot.vue';
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld,
+  components: { EmitVModel, TestSlot },
+  setup() {
+    const emitTest = ref('');
+    return { emitTest };
   },
 };
 </script>
