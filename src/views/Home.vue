@@ -1,6 +1,6 @@
 <template>
   <emit-v-model :modelValue='emitTest' @update:modelValue='emitTest = $event' />
-  <test-slot>Testing text...</test-slot>
+  <test-slot>Testing text... {{ testStlot }}</test-slot>
 </template>
 
 <script>
@@ -13,7 +13,8 @@ export default {
   components: { EmitVModel, TestSlot },
   setup() {
     const emitTest = ref('');
-    return { emitTest };
+    const testStlot = 'Another test slot text...';
+    return { emitTest, testStlot };
   },
 };
 </script>
