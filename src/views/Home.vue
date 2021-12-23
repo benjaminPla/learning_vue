@@ -8,7 +8,9 @@
   >
     {{ tab }}
   </button>
-  <component :is='currentTabComputed' />
+  <keep-alive>
+    <component :is='currentTabComputed' />
+  </keep-alive>
 </template>
 
 <script>
@@ -32,7 +34,7 @@ export default {
     const emitTest = ref('');
     const testSlot = 'Another test slot text...';
     const tabs = ['TestTab1', 'TestTab2', 'TestTab3'];
-    const currentTab = ref('Tab1');
+    const currentTab = ref('TestTab1');
     const currentTabComputed = computed(() => currentTab.value);
     return {
       emitTest,
