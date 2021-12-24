@@ -1,4 +1,5 @@
 <template>
+  <test-transition />
   <emit-v-model :modelValue='emitTest' @update:modelValue='emitTest = $event' />
   <test-slot>Testing text... {{ testSlot }}</test-slot>
   <button
@@ -15,6 +16,7 @@
 
 <script>
 import { ref, computed } from 'vue';
+import TestTransition from '../components/TestTransition.vue';
 import EmitVModel from '../components/EmitVModel.vue';
 import TestSlot from '../components/TestSlot.vue';
 import TestTab1 from '../components/TestTab1.vue';
@@ -24,6 +26,7 @@ import TestTab3 from '../components/TestTab3.vue';
 export default {
   name: 'Home',
   components: {
+    TestTransition,
     EmitVModel,
     TestSlot,
     TestTab1,
